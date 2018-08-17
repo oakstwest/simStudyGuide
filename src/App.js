@@ -4,8 +4,8 @@ import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
 import Form from './components/Form/Form';
 import Header from './components/Header/Header';
-import starWars from './server/starWars';
-
+import StarWars from './components/StarWars';
+import axios from 'axios'
 
 class App extends Component {
   constructor() {
@@ -15,34 +15,37 @@ class App extends Component {
       updateProduct: '',
       deleteProduct: '',
       createProduct: '',
-// this is where you set state.
+      // this is where you set state.
     }
-    
 
-    }
+
   }
+getProduct(){
+  axios.get('/api/')
+}
 
 
 
-  render() {
-    return (
-      <div className='App'>
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
 
-        <button>Cancel</button>
-        <button>Add to Inventory</button>
-        <div>
-          <Dashboard />
-          <Form />
-          <Header />
-          <starWars/>
-        </div>
+render() {
+  return (
+    <div className='App'>
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+
+      <button>Cancel</button>
+      <button>Add to Inventory</button>
+      <div>
+        <Dashboard />
+        <Form />
+        <Header />
+        <StarWars/>
       </div>
-      // rendering the components in app.js
-    );
-  }
+    </div>
+    // rendering the components in app.js
+  )
+};
 }
 
 export default App;
